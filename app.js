@@ -2,14 +2,17 @@
 
 const path = require('path');
 const express = require('express');
+const hbs = require('hbs');
 const createError = require('http-errors');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
 const serveFavicon = require('serve-favicon');
 const baseRouter = require('./routes/base');
+const authRouter = require('./routes/auth');
 
 const app = express();
 
+hbs.registerPartials(path.join(__dirname, 'views/partials'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
@@ -29,7 +32,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));
 
+app.locals.title = 'Express Auth';
+
 app.use('/', baseRouter);
+app.use(authRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

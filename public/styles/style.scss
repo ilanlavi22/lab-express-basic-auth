@@ -1,12 +1,145 @@
-$font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+$font-sans: 'Quicksand', sans-serif;
+$baseFontColor: #222;
+$backgroundColor: #fafafa;
 $link-color: #00b7ff;
 
-body {
+* {
   margin: 0;
-  padding: 50px;
-  font-family: $font-sans;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
 }
 
 a {
-  color: $link-color;
+  text-decoration: none;
+  color: $baseFontColor;
+}
+
+body {
+  font-family: $font-sans;
+  color: $baseFontColor;
+  font-size: 1.2rem;
+  background: $backgroundColor;
+}
+
+/**
+ * NAV
+ * 
+ */
+
+header,
+main {
+  width: 90%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-block: 2rem;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.3125rem;
+  }
+  h5 {
+    font-weight: 500;
+    font-size: 1rem;
+    color: crimson;
+  }
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  ul {
+    display: flex;
+    flex: 1;
+    align-items: center;
+
+    .nav-divider {
+      display: flex;
+      margin-left: auto;
+    }
+
+    li {
+      margin-left: 20px;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      a {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 0.8em;
+        display: block;
+        padding: 10px 16px;
+        letter-spacing: 2px;
+
+        &:hover {
+          color: crimson;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * FORMS
+ * 
+ */
+
+form {
+  width: 360px;
+  margin: 0 auto;
+  padding: 30px;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background: white;
+
+  h2 {
+    font-size: 2.4em;
+    font-weight: 900;
+    margin-bottom: 40px;
+  }
+
+  input {
+    padding: 10px 12px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+    width: 100%;
+  }
+
+  label {
+    display: block;
+    margin: 20px 0 10px;
+  }
+  button {
+    margin-top: 30px;
+    border-radius: 36px;
+    background: #fee996;
+    border: 0;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.8em;
+    display: block;
+    padding: 10px 16px;
+    letter-spacing: 2px;
+    cursor: pointer;
+  }
+  .error {
+    color: #ff0099;
+    margin: 10px 2px;
+    font-size: 0.8em;
+    font-weight: bold;
+  }
 }

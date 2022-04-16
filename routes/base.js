@@ -1,8 +1,9 @@
-const express = require('express');
-const router = new express.Router();
+const { Router } = require('express');
 
-router.get('/', (req, res, next) => {
-  res.render('index');
+const baseRouter = Router();
+
+baseRouter.get('/', (req, res, next) => {
+  res.render('index', { pageName: 'Home' });
 });
 
-module.exports = router;
+module.exports = baseRouter;
