@@ -2,6 +2,8 @@
 
 const path = require('path');
 const express = require('express');
+const expressSession = require('express-session');
+const MongoStore = require('connect-mongo');
 const hbs = require('hbs');
 const createError = require('http-errors');
 const logger = require('morgan');
@@ -28,6 +30,24 @@ app.use(
     sourceMap: process.env.NODE_ENV === 'development'
   })
 );
+
+// Store Cookies using 'Express Session' and 'Connect Mongo' in DB
+app.use(
+  expressSession({
+    name: 'newUser',
+    secret: 'authapp',
+    saveUninitialized: false,
+    resave: false,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 // 1 day in milliseconds
+    },
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
+      ttl: 60 * 60 // 60 minutes before connection is refreshed
+    })
+  })
+);
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));

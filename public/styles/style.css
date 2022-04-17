@@ -134,11 +134,24 @@ form button {
   cursor: pointer;
 }
 
-form .error {
-  color: #ff0099;
+.error {
+  color: crimson;
   margin: 10px 2px;
   font-size: 0.8em;
   font-weight: bold;
+}
+
+.content.error h3,
+.error h3 {
+  color: crimson;
+  font-size: 1.2em;
+  margin-block: 1rem;
+}
+
+.content.error p,
+.error p {
+  font-size: 0.9rem;
+  line-height: 1.5rem;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -136,10 +136,24 @@ form {
     letter-spacing: 2px;
     cursor: pointer;
   }
-  .error {
-    color: #ff0099;
-    margin: 10px 2px;
-    font-size: 0.8em;
-    font-weight: bold;
+}
+
+.error {
+  color: crimson;
+  margin: 10px 2px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.content.error,
+.error {
+  h3 {
+    color: crimson;
+    font-size: 1.2em;
+    margin-block: 1rem;
+  }
+  p {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
   }
 }
