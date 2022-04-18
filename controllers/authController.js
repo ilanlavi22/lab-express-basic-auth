@@ -50,3 +50,11 @@ module.exports.logout_get = (req, res) => {
   req.session.destroy();
   res.redirect('/');
 };
+
+// module.exports.profile_get = (req, res) => {
+//   res.render('profile');
+// };
+
+// module.exports.profileEdit_get = (req, res) => {
+//   res.render('profile', { pageName: 'Profile' });
+// };

@@ -2,8 +2,8 @@
 <nav>
   <ul>
     {{#if user}}
-      <li><a href='/private'>Private</a></li>
-      <li><a href='/profile'>Profile</a></li>
+      <li><a href='/private' {{#if private}} class="active"{{/if}}>Private</a></li>
+      <li><a href='/profile' {{#if profile}} class="active"{{/if}}>Profile</a></li>
       <li><a href='/logout'>Log out</a></li>
     {{else}}
       <li><a href='/signup' class='btn'>Sign up</a></li>

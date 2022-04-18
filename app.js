@@ -12,10 +12,12 @@ const serveFavicon = require('serve-favicon');
 const baseRouter = require('./routes/base');
 const authRouter = require('./routes/auth');
 const { requireAuth, userSession } = require('./middleware/authMiddleWare');
+const User = require('./models/user');
 
 const app = express();
 
 hbs.registerPartials(path.join(__dirname, 'views/partials'));
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
@@ -59,11 +61,26 @@ app.use(authRouter);
 app.use('*', userSession);
 app.use('/', baseRouter);
 app.get('/private', requireAuth, (req, res) =>
-  res.render('private', { pageName: 'Private' })
+  res.render('private', { pageName: 'Private', private: true })
 );
 app.get('/profile', requireAuth, (req, res) =>
-  res.render('profile', { pageName: 'Profile' })
+  res.render('profile', { pageName: 'Profile', profile: true })
 );
+app.get('/profile/edit', requireAuth, (req, res) =>
+  res.render('profile_edit', { pageName: 'Profile', profile: true })
+);
+
+app.post('/profile/edit', requireAuth, (req, res, next) => {
+  const userId = req.session.userId;
+  const { profile } = req.body;
+  User.findByIdAndUpdate(userId, { profile })
+    .then(() => {
+      res.status(302).redirect('/profile');
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
