@@ -6,8 +6,8 @@ module.exports.signup_get = (req, res) => {
 };
 
 module.exports.signup_post = (req, res, next) => {
-  const { username, password } = req.body;
-  User.create({ username, password })
+  const { username, password, profile } = req.body;
+  User.create({ username, password, profile })
     .then((user) => {
       req.session.userId = user._id;
       res.redirect('/private');
@@ -46,8 +46,7 @@ module.exports.login_post = (req, res, next) => {
     });
 };
 
-// module.exports.logout_get = (req, res) => {
-//   req.session.destroy();
-//   console.log(req.session);
-//   res.redirect('/');
-// };
+module.exports.logout_get = (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
+};

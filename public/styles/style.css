@@ -109,12 +109,6 @@ section.home img {
   font-size: 0.8em;
 }
 
-form h2 {
-  font-size: 2.4em;
-  font-weight: 900;
-  margin-bottom: 40px;
-}
-
 form {
   width: 360px;
   margin: 0 auto;
@@ -124,7 +118,13 @@ form {
   background: white;
 }
 
-input {
+form h2 {
+  font-size: 2.4em;
+  font-weight: 900;
+  margin-bottom: 40px;
+}
+
+form input {
   padding: 10px 12px;
   border-radius: 4px;
   border: 1px solid #ddd;
@@ -132,12 +132,12 @@ input {
   width: 100%;
 }
 
-label {
+form label {
   display: block;
   margin: 20px 0 10px;
 }
 
-button {
+form button {
   margin-top: 30px;
   border-radius: 36px;
   background: #fee996;
@@ -165,7 +165,7 @@ button {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-.recipe {
+.recipes .recipe {
   display: inline-block;
   border-radius: 20px;
   background: white;
@@ -174,7 +174,7 @@ button {
   padding: 0 20px 30px 20px;
 }
 
-.recipe img {
+.recipes .recipe img {
   width: 100px;
   margin: -30px auto 20px;
 }
