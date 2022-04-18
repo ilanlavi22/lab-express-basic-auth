@@ -18,6 +18,15 @@ a {
   text-decoration: none;
   color: $baseFontColor;
 }
+input,
+label,
+button {
+  font-family: $font-sans;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
 
 body {
   font-family: $font-sans;
@@ -25,78 +34,79 @@ body {
   font-size: 1.2rem;
   background: $backgroundColor;
 }
-
-/**
- * NAV
- * 
- */
-
+h3,
+h4,
+h5 {
+  margin-block-end: 10px;
+}
+p {
+  font-size: 1.1rem;
+}
 header,
 main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 90%;
   max-width: 1200px;
   margin-inline: auto;
-  padding-block: 2rem;
-}
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  margin-block: 50px;
 
   h1 {
     font-size: 2rem;
-    margin-bottom: 0.3125rem;
-  }
-  h5 {
     font-weight: 500;
-    font-size: 1rem;
-    color: crimson;
   }
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
 
   ul {
     display: flex;
-    flex: 1;
     align-items: center;
-
-    .nav-divider {
-      display: flex;
-      margin-left: auto;
-    }
 
     li {
       margin-left: 20px;
-
-      &:first-of-type {
-        margin-left: 0;
-      }
-
-      a {
-        text-transform: uppercase;
-        font-weight: 700;
-        font-size: 0.8em;
-        display: block;
-        padding: 10px 16px;
-        letter-spacing: 2px;
-
-        &:hover {
-          color: crimson;
-        }
-      }
+    }
+    a {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 0.8em;
+      display: block;
+      padding: 10px 16px;
+      letter-spacing: 1px;
     }
   }
 }
+section {
+  margin-block-start: 100px;
+  width: 100%;
 
-/**
- * FORMS
- * 
- */
+  &.home img {
+    max-width: 80%;
+  }
+}
+.content {
+  &.flex {
+    display: flex;
+    align-items: center;
+  }
+}
+.btn {
+  border-radius: 36px;
+  background: #fee996;
+  cursor: pointer;
+}
+.page-btn {
+  margin-top: 20px;
+  padding: 12px 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 0.8em;
+}
 
+form h2 {
+  font-size: 2.4em;
+  font-weight: 900;
+  margin-bottom: 40px;
+}
 form {
   width: 360px;
   margin: 0 auto;
@@ -104,56 +114,57 @@ form {
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   background: white;
-
-  h2 {
-    font-size: 2.4em;
-    font-weight: 900;
-    margin-bottom: 40px;
-  }
-
-  input {
-    padding: 10px 12px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-    font-size: 1em;
-    width: 100%;
-  }
-
-  label {
-    display: block;
-    margin: 20px 0 10px;
-  }
-  button {
-    margin-top: 30px;
-    border-radius: 36px;
-    background: #fee996;
-    border: 0;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 0.8em;
-    display: block;
-    padding: 10px 16px;
-    letter-spacing: 2px;
-    cursor: pointer;
-  }
 }
-
+input {
+  padding: 10px 12px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 1em;
+  width: 100%;
+}
+label {
+  display: block;
+  margin: 20px 0 10px;
+}
+button {
+  margin-top: 30px;
+  border-radius: 36px;
+  background: #fee996;
+  border: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.8em;
+  display: block;
+  padding: 10px 16px;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
 .error {
-  color: crimson;
+  color: #ff0099;
   margin: 10px 2px;
   font-size: 0.8em;
   font-weight: bold;
 }
-
-.content.error,
-.error {
-  h3 {
-    color: crimson;
-    font-size: 1.2em;
-    margin-block: 1rem;
-  }
-  p {
-    font-size: 0.9rem;
-    line-height: 1.5rem;
-  }
+.recipes {
+  width: 100%;
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.recipe {
+  display: inline-block;
+  border-radius: 20px;
+  background: white;
+  position: relative;
+  text-align: center;
+  padding: 0 20px 30px 20px;
+}
+.recipe img {
+  width: 100px;
+  margin: -30px auto 20px;
+}
+footer {
+  text-align: center;
+  margin-top: 120px;
+  color: #aaa;
 }

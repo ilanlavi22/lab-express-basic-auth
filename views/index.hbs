@@ -1,1 +1,15 @@
-
+<section class='home'>
+  <div class="content flex">
+  <div><img src='images/smoothie.png' alt='' /></div>
+  <div class='headings'>
+    <h2>Super Easy Smoothie Recipes</h2>   
+     {{#if user}}
+     <h3>
+      Welcome
+      {{user.username}}
+      </h3>      
+    {{/if}}
+     
+    <a href='/private' class='page-btn btn'>View Recipes</a>    
+  </div>
+</section>

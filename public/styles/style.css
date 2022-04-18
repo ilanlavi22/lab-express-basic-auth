@@ -14,6 +14,17 @@ a {
   color: #222;
 }
 
+input,
+label,
+button {
+  font-family: "Quicksand", sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 body {
   font-family: "Quicksand", sans-serif;
   color: #222;
@@ -21,77 +32,89 @@ body {
   background: #fafafa;
 }
 
-/**
- * NAV
- * 
- */
+h3,
+h4,
+h5 {
+  margin-block-end: 10px;
+}
+
+p {
+  font-size: 1.1rem;
+}
+
 header,
 main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 90%;
   max-width: 1200px;
   margin-inline: auto;
-  padding-block: 2rem;
+  margin-block: 50px;
 }
 
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-header h1 {
+header h1,
+main h1 {
   font-size: 2rem;
-  margin-bottom: 0.3125rem;
-}
-
-header h5 {
   font-weight: 500;
-  font-size: 1rem;
-  color: crimson;
 }
 
-nav {
+header ul,
+main ul {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-nav ul {
-  display: flex;
-  flex: 1;
   align-items: center;
 }
 
-nav ul .nav-divider {
-  display: flex;
-  margin-left: auto;
-}
-
-nav ul li {
+header ul li,
+main ul li {
   margin-left: 20px;
 }
 
-nav ul li:first-of-type {
-  margin-left: 0;
-}
-
-nav ul li a {
+header ul a,
+main ul a {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 0.8em;
   display: block;
   padding: 10px 16px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
-nav ul li a:hover {
-  color: crimson;
+section {
+  margin-block-start: 100px;
+  width: 100%;
 }
 
-/**
- * FORMS
- * 
- */
+section.home img {
+  max-width: 80%;
+}
+
+.content.flex {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  border-radius: 36px;
+  background: #fee996;
+  cursor: pointer;
+}
+
+.page-btn {
+  margin-top: 20px;
+  padding: 12px 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 0.8em;
+}
+
+form h2 {
+  font-size: 2.4em;
+  font-weight: 900;
+  margin-bottom: 40px;
+}
+
 form {
   width: 360px;
   margin: 0 auto;
@@ -101,13 +124,7 @@ form {
   background: white;
 }
 
-form h2 {
-  font-size: 2.4em;
-  font-weight: 900;
-  margin-bottom: 40px;
-}
-
-form input {
+input {
   padding: 10px 12px;
   border-radius: 4px;
   border: 1px solid #ddd;
@@ -115,12 +132,12 @@ form input {
   width: 100%;
 }
 
-form label {
+label {
   display: block;
   margin: 20px 0 10px;
 }
 
-form button {
+button {
   margin-top: 30px;
   border-radius: 36px;
   background: #fee996;
@@ -135,23 +152,37 @@ form button {
 }
 
 .error {
-  color: crimson;
+  color: #ff0099;
   margin: 10px 2px;
   font-size: 0.8em;
   font-weight: bold;
 }
 
-.content.error h3,
-.error h3 {
-  color: crimson;
-  font-size: 1.2em;
-  margin-block: 1rem;
+.recipes {
+  width: 100%;
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-.content.error p,
-.error p {
-  font-size: 0.9rem;
-  line-height: 1.5rem;
+.recipe {
+  display: inline-block;
+  border-radius: 20px;
+  background: white;
+  position: relative;
+  text-align: center;
+  padding: 0 20px 30px 20px;
+}
+
+.recipe img {
+  width: 100px;
+  margin: -30px auto 20px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 120px;
+  color: #aaa;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,13 +1,13 @@
-<header>
-  <div class='branding'>
-    <h1>Smoothie Recipes</h1>
-    <h5>Super Easy Fruit Smoothie Recipes </h5>
-  </div>
-  <nav>
-    <ul>
-      <li><a href='/'>Home</a></li>
-      <li><a href='/signup'>Signup</a></li>
-      <li><a href='/login'>Login</a></li>
-    </ul>
-  </nav>
-</header>
+<h1><a href='/'>Smoothie Recipes</a></h1>
+<nav>
+  <ul>
+    {{#if user}}
+      <li><a href='/private'>Private</a></li>
+      <li><a href='/profile'>Profile</a></li>
+      <li><a href='/logout'>Log out</a></li>
+    {{else}}
+      <li><a href='/signup' class='btn'>Sign up</a></li>
+      <li><a href='/login'>Log in</a></li>
+    {{/if}}
+  </ul>
+</nav>

@@ -10,7 +10,7 @@ module.exports.signup_post = (req, res, next) => {
   User.create({ username, password })
     .then((user) => {
       req.session.userId = user._id;
-      res.redirect('/private', { user });
+      res.redirect('/private');
     })
     .catch((error) => {
       next(error);
@@ -46,12 +46,8 @@ module.exports.login_post = (req, res, next) => {
     });
 };
 
-module.exports.logout_get = (req, res) => {
-  req.session.destroy();
-  console.log(req.session);
-  res.redirect('/');
-};
-
-module.exports.private_get = (req, res) => {
-  res.render('private', { pageName: 'Private' });
-};
+// module.exports.logout_get = (req, res) => {
+//   req.session.destroy();
+//   console.log(req.session);
+//   res.redirect('/');
+// };

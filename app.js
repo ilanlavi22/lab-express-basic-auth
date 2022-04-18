@@ -11,6 +11,7 @@ const sassMiddleware = require('node-sass-middleware');
 const serveFavicon = require('serve-favicon');
 const baseRouter = require('./routes/base');
 const authRouter = require('./routes/auth');
+const { requireAuth, userSession } = require('./middleware/authMiddleWare');
 
 const app = express();
 
@@ -54,8 +55,15 @@ app.use(express.urlencoded({ extended: true }));
 
 app.locals.title = 'Express Auth';
 
-app.use('/', baseRouter);
 app.use(authRouter);
+app.use('*', userSession);
+app.use('/', baseRouter);
+app.get('/private', requireAuth, (req, res) =>
+  res.render('private', { pageName: 'Private' })
+);
+app.get('/profile', requireAuth, (req, res) =>
+  res.render('profile', { pageName: 'Profile' })
+);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
